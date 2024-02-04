@@ -7,6 +7,12 @@ public class App {
                 new AnnotationConfigApplicationContext(AppConfig.class);
         HelloWorld bean =
                 (HelloWorld) applicationContext.getBean("helloworld");
-        System.out.println(bean.getMessage());
+        HelloWorld bean1 =
+                (HelloWorld) applicationContext.getBean("helloworld");
+        Cat catBean = (Cat) applicationContext.getBean("cat");
+        Cat catBean1 = (Cat) applicationContext.getBean("cat");
+
+        System.out.println("Ссылки для helloworld одинаковые? : " + (bean == bean1));
+        System.out.println("Ссылки cat одинаковые? : " + (catBean == catBean1));
     }
 }
